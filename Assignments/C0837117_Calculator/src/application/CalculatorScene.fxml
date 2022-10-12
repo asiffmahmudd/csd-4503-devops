@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyController">
+   <children>
+      <AnchorPane prefHeight="495.0" prefWidth="462.0">
+         <children>
+            <Button fx:id="btnClear" layoutX="365.0" layoutY="97.0" mnemonicParsing="false" onAction="#btnClear" prefHeight="57.0" prefWidth="65.0" text="CE" />
+            <Button fx:id="btnSqrt" layoutX="365.0" layoutY="171.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="57.0" prefWidth="65.0" text="SQRT" />
+            <Button fx:id="btnPercentage" layoutX="282.0" layoutY="171.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="57.0" prefWidth="65.0" text="\%" />
+            <Button fx:id="btn7" layoutX="199.0" layoutY="171.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="7" />
+            <Button fx:id="btn8" layoutX="116.0" layoutY="171.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="8" />
+            <Button fx:id="btn9" layoutX="33.0" layoutY="171.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="9" />
+            <Button fx:id="btn4" layoutX="33.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="4" />
+            <Button fx:id="btn5" layoutX="116.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="5" />
+            <Button fx:id="btn6" layoutX="199.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="6" />
+            <Button fx:id="btnMultiply" layoutX="282.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="57.0" prefWidth="65.0" text="X" />
+            <Button fx:id="btnDivide" layoutX="365.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="57.0" prefWidth="65.0" text="/">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn1" layoutX="33.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="1" />
+            <Button fx:id="btn2" layoutX="116.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="2" />
+            <Button fx:id="btn3" layoutX="199.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="3" />
+            <Button fx:id="btnPlus" layoutX="282.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="133.0" prefWidth="65.0" text="+">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnMinus" layoutX="365.0" layoutY="322.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="57.0" prefWidth="65.0" text="-">
+               <font>
+                  <Font name="Candara" size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn0" layoutX="33.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text="0" />
+            <Button fx:id="btnDot" layoutX="116.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnClick" prefHeight="57.0" prefWidth="65.0" text=".">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnPlusMinus" layoutX="199.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="57.0" prefWidth="65.0" text="+/-">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEquals" layoutX="365.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnOperator" prefHeight="57.0" prefWidth="65.0" text="=">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <TextField fx:id="input" layoutX="33.0" layoutY="36.0" prefHeight="41.0" prefWidth="398.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
