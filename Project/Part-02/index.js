@@ -177,7 +177,7 @@ app.get("/Products/Page/:skip/:limit", (req, res) => {
     .skip(2)
     .limit(3)
     .toArray((err, items) => {
-        if (err) {
+        if (err) { 
             console.error(err)
             res.status(500).json({ err: err })
             return
