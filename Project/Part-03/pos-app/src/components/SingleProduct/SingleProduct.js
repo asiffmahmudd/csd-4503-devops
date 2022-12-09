@@ -1,21 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import Modal from 'react-bootstrap/Modal';
 
-const SingleProduct = () => {
+const SingleProduct = ({product}) => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card  cap" />
-            <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-                </div>
-            </div>
-            </div>
+        <div className="col-md-3 mt-4">
+            <Card style={{ width: '15rem' }}>
+            <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/mediawiki/a/a9/Example.jpg" />
+            <Card.Body>
+                <Card.Title>{product.Name}</Card.Title>
+                <Card.Text>
+                    {`$${product.Price}`}
+                </Card.Text>
+                <Button variant="primary" onClick={handleShow}>See Details</Button>
+            </Card.Body>
+            </Card>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>{product.Name}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <img src="https://upload.wikimedia.org/wikipedia/mediawiki/a/a9/Example.jpg" alt="Product" style={{width:'100%'}}/>
+                    <p><b>Price: </b>${product.Price}</p>
+                    <p><b>Colour: </b>{product.Colour}</p>
+                    <p><b>Manufacturer: </b>{product.Manufacturer}</p>
+                    <p><b>Description: </b>{product.Description}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 };

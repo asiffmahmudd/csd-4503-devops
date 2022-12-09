@@ -1,8 +1,9 @@
 const express = require("express")
 const mongo = require("mongodb").MongoClient
 const app = express()
-const url = "mongodb://localhost:27017"
+const url = "mongodb://0.0.0.0:27017/"
 const ObjectId = require('mongodb').ObjectId;
+var cors = require('cors');
 let db
 
 mongo.connect(
@@ -21,6 +22,7 @@ mongo.connect(
   }
 )
 app.use(express.json())
+app.use(cors());
 
 //Return a JSON object containing all the products in the database
 app.get("/Products", (req, res) => {
@@ -78,6 +80,8 @@ app.get("/Products/:id/:field", (req, res) => {
 })
 
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-
-app.listen(3000, () => console.log("Server ready"))
+app.listen(2000, () => console.log("Server ready"))
