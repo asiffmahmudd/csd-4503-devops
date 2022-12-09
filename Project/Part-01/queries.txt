@@ -1,0 +1,21 @@
+5. db.products.find({},{Name:1, Price: 1}).sort({Price:-1}).limit(1)
+
+6. db.products.find({},{Name:1, StartingDateAvailable:1}).sort({StartingDateAvailable:1}).limit(1)
+
+7. db.products.aggregate([{$group:{'_id': {Colour:'$Colour'}, count: {$sum: 1}}}, { "$sort": { "count": -1 } }, { "$limit": 1 }])
+
+8. db.products.updateMany({}, [{$set: {Premium_Brand: {$gte: ["$Price", 100]}}}])
+
+9. db.products.updateMany({}, [{$set: {Sale_Price: { $subtract: ["$Price", {$multiply: ["$Price", 0.2]}]}}}])
+
+10. db.products.find({"Description" : {$regex : "large"}}, {Name: 1, Description: 1})
+
+11. db.products.updateMany({}, {$rename: {"Manufacturer": "Produced_By"}})
+
+12. db.products.aggregate([{"$addFields":{"longest":{ $divide: [{$subtract: ["$EndingDateAvailable", "$StartingDateAvailable"]}, 86400000]}}}, {"$sort": {"longest": -1}}, {"$limit": 1}])
+
+13. db.products.find({"EndingDateAvailable": { $lt: new Date()}})
+
+14. db.products.find({"MaxRPM": { $gt: 30}})
+
+15. db.products.find({"Weight": { $lt: 5}})

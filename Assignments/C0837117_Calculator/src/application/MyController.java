@@ -113,6 +113,15 @@ public class MyController {
 		}
 		else if(btnClicked == btnPlusMinus) {
 			input.setText(plusMinus(inputText));
+			try {
+				if(!s.isEmpty()) {
+			        Double.parseDouble(s.peek());
+			        s.pop();
+			        s.push(input.getText().toString());
+			        clearText = false;
+				}
+		    } 
+			catch (NumberFormatException nfe) {}
 		}
 		else if(btnClicked == btnPercentage) {
 			input.setText(percentage(inputText));
@@ -138,12 +147,15 @@ public class MyController {
 			}
 		}
 		else if(s.size() == 1) {
-			if(btnClicked != btnEquals)
+			System.out.println("jhere");
+			if(btnClicked != btnEquals) {
+				s.pop();
+				s.push(inputText);
 				s.push(btnClicked.getText());
 				clearText = true;
+			}
 		}
 		else if(s.size() == 2) {
-			System.out.println("here");
 			if(!isChanged) {
 				s.pop();
 				if(btnClicked != btnEquals) {
@@ -160,19 +172,19 @@ public class MyController {
 		}
 		isChanged = false;
 		
-		printStack();
+//		printStack();
 	}
 	
-	public void printStack() {
-		Stack<String> temp = new Stack<String>();
-		while(!s.empty()) {
-			temp.push(s.pop());
-			System.out.println(temp.peek());
-		}
-		System.out.println("--------------");
-		while(!temp.empty()) {
-			s.push(temp.pop());
-		}
-	}
+//	public void printStack() {
+//		Stack<String> temp = new Stack<String>();
+//		while(!s.empty()) {
+//			temp.push(s.pop());
+//			System.out.println(temp.peek());
+//		}
+//		System.out.println("--------------");
+//		while(!temp.empty()) {
+//			s.push(temp.pop());
+//		}
+//	}
 	
 }
