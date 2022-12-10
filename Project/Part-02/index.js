@@ -85,7 +85,6 @@ app.get("/Products/:id/:field", (req, res) => {
 //Based on the provided identifier, REPLACE the corresponding object in the MongoDB collection.
 app.put('/Products/:id', (req,res) => {
     try{
-        console.log(req.body)
         const {Name, Price, Colour, Manufacturer, StartingDateAvailable, EndingDateAvailable, Image, Description, Model, Weight, MaxRPM} = req.body
         products.updateOne(
             {_id: ObjectId(req.params.id)}, 
@@ -108,12 +107,16 @@ app.put('/Products/:id', (req,res) => {
         )
         .then(result => {
             if(result.modifiedCount > 0){
-                res.send("Updated Successfully!")
+                res.send({
+                    message: "Product was updated successfully!"
+                })
             }
         })
     }
     catch(e){
-        res.send("Sorry! couldn't update product")
+        res.send({
+            message: "Sorry! couldn't update product"
+        })
     }
     
 })

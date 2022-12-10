@@ -7,6 +7,21 @@ function App() {
 
   let [products, setProducts] = useState([])
 
+  const deleteProduct = (id) =>{
+    setProducts(products.filter(product => product._id !== id))
+  }
+
+  const updateProduct = (id, newData) =>{
+    const newProducts = products.map(product => {
+      if(product._id === id){
+        return {...product, ...newData}
+      }
+      return product
+    })
+    console.log(newProducts)
+    setProducts(newProducts)
+  }
+
   useEffect(() => {
     fetch('http://localhost:2000/products',{
       method : "GET"
@@ -21,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader/>
-      <AppBody products={products}/>
+      <AppBody products={products} deleteProduct={deleteProduct} updateProduct={updateProduct}/>
     </div>
   );
 }

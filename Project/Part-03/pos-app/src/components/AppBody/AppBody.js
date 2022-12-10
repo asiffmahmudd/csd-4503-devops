@@ -3,12 +3,11 @@ import ReactPaginate from 'react-paginate'
 import Items from '../Items/Items';
 import "./AppBody.css";
 
-const AppBody = ({products}) => {
+const AppBody = ({products, deleteProduct, updateProduct}) => {
     const itemsPerPage = 10
     const [itemOffset, setItemOffset] = useState(0);
 
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     const currentItems = products.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(products.length / itemsPerPage);
 
@@ -24,7 +23,7 @@ const AppBody = ({products}) => {
         <div className="py-5 bg-light">
             <div className="container">
                 <div className="row">
-                    <Items currentItems={currentItems}/>
+                    <Items currentItems={currentItems} deleteProduct={deleteProduct} updateProduct={updateProduct}/>
                     <div className='cstm-pagination mt-5'>
                         <ReactPaginate
                             breakLabel="..."
