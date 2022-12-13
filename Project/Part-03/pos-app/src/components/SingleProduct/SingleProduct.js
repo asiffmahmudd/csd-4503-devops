@@ -10,7 +10,7 @@ const SingleProduct = ({product, deleteProduct, updateProduct}) => {
     return (
         <div className="col-md-3 mt-4">
             <Card style={{ width: '15rem' }}>
-            <Card.Img variant="top" src="https://upload.wikimedia.org/wikipedia/mediawiki/a/a9/Example.jpg" />
+            <Card.Img variant="top" src={product.Image} style={{ height: '13rem' }} />
             <Card.Body>
                 <Card.Title>{product.Name}</Card.Title>
                 <Card.Text>

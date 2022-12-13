@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import AppBody from './components/AppBody/AppBody';
 import AppHeader from './components/AppHeader/AppHeader';
+import { serverurl } from './config';
 
 function App() {
 
@@ -18,12 +19,11 @@ function App() {
       }
       return product
     })
-    console.log(newProducts)
     setProducts(newProducts)
   }
 
   useEffect(() => {
-    fetch('http://localhost:2000/products',{
+    fetch(serverurl+'/products',{
       method : "GET"
     })
     .then(data => data.json())

@@ -3,12 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import moment from 'moment';
 import { useForm } from "react-hook-form";
+import { serverurl } from '../../config';
 
 const ProductForm = ({product, updateProduct, handleClose}) => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:2000/Products/'+product._id,{
+        fetch(serverurl+'/Products/'+product._id,{
             method : "PUT",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

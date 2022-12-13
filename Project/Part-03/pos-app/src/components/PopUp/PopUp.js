@@ -2,11 +2,12 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ProductForm from './ProductForm';
+import { serverurl } from '../../config';
 
 const PopUp = ({show, handleClose, product, deleteProduct, updateProduct}) => {
 
     const handleDelete = () =>{
-        fetch('http://localhost:2000/Products/'+product._id,{
+        fetch(serverurl+'/Products/'+product._id,{
             method : "DELETE"
         })
         .then(data => data.json())
@@ -28,7 +29,7 @@ const PopUp = ({show, handleClose, product, deleteProduct, updateProduct}) => {
                 </Modal.Header>
                 <Modal.Body>
                     { 
-                    <img src="https://upload.wikimedia.org/wikipedia/mediawiki/a/a9/Example.jpg" alt="Product" style={{width:'100%'}}/>
+                    <img src={product.Image} alt="Product" style={{width:'100%', height:"20rem"}}/>
                     /*<p><b>Price: </b>${product.Price}</p>
                     <p><b>Colour: </b>{product.Colour}</p>
                     <p><b>Manufacturer: </b>{product.Manufacturer}</p>
